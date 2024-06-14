@@ -21,7 +21,9 @@ const Landing = () => {
             Debitis id dicta harum placeat illo voluptatem a quas repellendus
             ipsum?
           </p>
-          <Link to="/register" className="btn btn-hero">Login/Register</Link>
+          <Link to="/register" className="btn btn-hero">
+            Login/Register
+          </Link>
         </div>
         <img src={main} alt="job hunt" className="img main-img" />
       </div>

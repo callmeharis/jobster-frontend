@@ -324,3 +324,7 @@ ul {
 .Toastify__toast {
   text-transform: capitalize;
 }
+
+.disabled-bg{
+  background-color: rgb(230, 230, 230);
+}
