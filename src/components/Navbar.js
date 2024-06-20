@@ -13,9 +13,9 @@ const Navbar = () => {
   const toggle = () => {
     dispatch(toggleSidebar());
   };
-  const logout = ()=>{
-    dispatch(logoutUser())
-  }
+  const logout = () => {
+    dispatch(logoutUser('Logging out...'));
+  };
   return (
     <Wrapper>
       <div className="nav-center">
@@ -37,11 +37,7 @@ const Navbar = () => {
             <FaCaretDown />
           </button>
           <div className={showLogout ? "dropdown show-dropdown" : "dropdown"}>
-            <button
-              type="button"
-              className="dropdown-btn"
-              onClick={logout}
-            >
+            <button type="button" className="dropdown-btn" onClick={logout}>
               logout
             </button>
           </div>
