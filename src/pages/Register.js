@@ -15,10 +15,10 @@ const initialState = {
 
 function Register() {
   const [values, setValues] = useState(initialState);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const { user, isLoading } = useSelector((store)=>store.user)
-  const dispatch = useDispatch()
+  const { user, isLoading } = useSelector((store) => store.user);
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -33,21 +33,21 @@ function Register() {
       return;
     }
     if (isMember) {
-        dispatch(loginUser({ email:email, password: password }))
-        return;
+      dispatch(loginUser({ email: email, password: password }));
+      return;
     }
-    dispatch(registerUser({ name, email, password }))
+    dispatch(registerUser({ name, email, password }));
   };
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
   };
-  useEffect(()=>{
+  useEffect(() => {
     if (user) {
-        setTimeout(() => {
-            navigate("/")
-        }, 2000);
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
     }
-  }, [user, navigate])
+  }, [user, navigate]);
   return (
     <Wrapper className="full-page">
       <form className="form" onSubmit={handleSubmit}>
@@ -77,7 +77,19 @@ function Register() {
           handleChange={handleChange}
         />
         <button type="submit" className="btn btn-block" disabled={isLoading}>
-          {isLoading ? 'loading...' : 'submit'}
+          {isLoading ? "loading..." : "submit"}
+        </button>
+        <button
+          type="button"
+          className="btn btn-block btn-hipster"
+          disabled={isLoading}
+          onClick={() =>
+            dispatch(
+              loginUser({ email: "testUser@test.com", password: "secret" })
+            )
+          }
+        >
+          {isLoading ? "loading..." : "demo app"}
         </button>
         <p>
           {values.isMember ? "Not a member?" : "Already a member?"}
